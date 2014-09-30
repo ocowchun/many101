@@ -5,8 +5,41 @@
 
 想想看平常安裝rails production環境的時候，要打一堆`apt-get install`，有了`chef`之後，這些事情可以寫成`cookbooks`，以後就能自動化完成，再也不用跟環境在哪邊過不去囉!!
 
+
 ####install chefDk
 [downloads](http://downloads.getchef.com/chef-dk/mac/#/)
+
+
+###常用指令
+####help
+```
+chef exec kitchen help
+```
+
+####初始化kitchen
+```
+chef exec kitchen init 
+```
+
+####安裝機器
+```
+chef exec kitchen converge
+```
+
+####關掉機器(機器會被砍掉喔!!!)
+```
+chef exec kitchen destroy 
+```
+
+####Log in to one instance
+```
+chef exec kitchen login 
+```
+
+
+####[more](http://kitchen.ci/docs/getting-started/getting-help)
+
+
 
 ###test kitchen
 an integration tool for developing and testing infrastructure code
