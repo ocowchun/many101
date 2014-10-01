@@ -1,0 +1,28 @@
+#web 開發注意事項
+##開發前
+* 準備production環境
+* 使用sprockets better error，錯誤測試
+* 使用application.yml (figaro)，管理所有token
+* 使用bower，管理所有前端工具
+
+##開發中
+* 靜態檔案需要加入precompile清單
+* model relation建立，需包含dependent
+* form 一律使用 form_for 及 form_tag，並用partial。
+* partial裡面不放js
+* helper（使用get, set，通用寫在application，html多就寫在partial）
+* 複雜的view使用cell
+* 使用Restful的view，至多增加layout, common
+
+##發佈
+* rollbar
+* load test
+
+####robots.txt
+要先設定好，哪些網址不要讓機器人看(例如ajax,api)
+
+###gem
+* annotate
+* simple_form
+* i18n
+* figaro
