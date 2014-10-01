@@ -49,6 +49,27 @@ kitchen init
 ```
 
 ####kitchen.yml
+
+```yml
+
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      network:
+      - ["forwarded_port", {guest: 80, host: 8080}]
+
+suites:
+  - name: default
+
+```
+
 driver是你開虛擬機的工具(ex:vagrant,ec2)
 
 ####platforms
