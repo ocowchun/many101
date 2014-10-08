@@ -17,6 +17,8 @@
 ##發佈
 * rollbar
 * load test
+####avoid error for apple-touch-icon-precomposed.png
+To resolve, add 2 100×100 png files, save it as apple-touch-icon-precomposed.png and apple-touch-icon.png and upload it to the root directory of the server. After that, the error should be gone.
 
 ####robots.txt
 要先設定好，哪些網址不要讓機器人看(例如ajax,api)
