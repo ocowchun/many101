@@ -6,6 +6,7 @@
 * 使用bower，管理所有前端工具
 
 ##開發中
+* **不要使用remote 回傳js的寫法，IE比較舊的版本不支援!!!**
 * 靜態檔案需要加入precompile清單
 * model relation建立，需包含dependent
 * form 一律使用 form_for 及 form_tag，並用partial。
