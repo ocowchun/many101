@@ -130,8 +130,11 @@ is Gemfile for Chef
 
 ###CREATING Berksfile
 put the following codes into `Berksfile`
-	source "https://supermarket.getchef.com"
-	metadata
+
+```
+source "https://supermarket.getchef.com"
+metadata
+```
 
 注意cookbook的來源，要指定清楚，不然會搞混
 
