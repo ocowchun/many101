@@ -11,13 +11,18 @@ sudo apt-get install monit
 ```
 
 ####啟動網頁介面
+修改`monitrc`加入下列兩行
+
 ```
-set httpd port 3737
+  set httpd port 3737
   allow admin:monit
 ```
+
 使用3737作為Monit網頁的port,登入時需要輸入帳號密碼
 
 ####追蹤Nginx
+
+在`conf.d`下加入`nginx.conf`內容如下
 ```
 check process nginx with pidfile /var/run/nginx.pid
   start program = "/etc/init.d/nginx start"
