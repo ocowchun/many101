@@ -9,6 +9,32 @@
 ####install chefDk
 [downloads](http://downloads.getchef.com/chef-dk/mac/#/)
 
+###quick start
+####初始化kitchen project
+```sh
+chef exec kitchen init 
+```
+####新增metadata.rb
+```rb
+name "cookbook-name"
+version "0.0.1"
+maintainer "chef-name"
+maintainer_email "chef@chef.com"
+supports "ubuntu"
+```
+
+####新增Berksfile
+```
+source "https://api.berkshelf.com"
+
+metadata
+```
+
+####新增`default.rb`到`recipes`資料夾
+```rb
+package 'git' #安裝git
+```
+這樣就完成了!
 
 ###常用指令
 ####help
