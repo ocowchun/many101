@@ -102,6 +102,21 @@ comment `config/environments/production.rb` log_formatter
 </source>
 ```
 
+##integrate fluent with kibana
+###install kibana
+```sh
+$ curl -O https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0milestone5.tar.gz
+$ tar zxvf kibana-3.0.0milestone5.tar.gz
+
+```
+
+
+###install  Elasticsearch plugin for td-agent
+
+```sh
+sudo apt-get install libcurl4-openssl-dev
+sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
+```
 
 [before-install](http://docs.fluentd.org/articles/before-install)
 [config-file](http://docs.fluentd.org/articles/config-file)
