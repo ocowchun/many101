@@ -34,6 +34,20 @@ metadata
 ```rb
 package 'git' #安裝git
 ```
+
+####修改`.kitchen.yml`
+```yml
+suites:
+  - name: default
+    run_list: cookbook-name::default
+    attributes:
+```
+
+####開始安裝機器!!
+```sh
+chef exec kitchen converge
+```
+
 這樣就完成了!
 
 ###常用指令
