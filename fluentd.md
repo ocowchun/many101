@@ -118,6 +118,29 @@ sudo apt-get install libcurl4-openssl-dev
 sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 ```
 
+###edit`td-agent.conf`,send nginx log to elastic search
+[link](http://docs.fluentd.org/recipe/nginx/elasticsearch)
+```
+<source>
+  type tail
+  path /var/log/httpd-access.log #...or where you placed your Apache access log
+  pos_file /var/log/td-agent/httpd-access.log.pos # This is where you record file position
+  tag nginx.access #fluentd tag!
+  format nginx # Do you have a custom format? You can write your own regex.
+</source>
+
+<match **>
+  type elasticsearch
+  logstash_format true
+  host <hostname> #(optional; default="localhost")
+  port <port> #(optional; default=9200)
+  index_name <index name> #(optional; default=fluentd)
+  type_name <type name> #(optional; default=fluentd)
+</match>
+```
+
+這樣就可以使用kibana來檢視log
+
 [before-install](http://docs.fluentd.org/articles/before-install)
 [config-file](http://docs.fluentd.org/articles/config-file)
 [match pattern](http://docs.fluentd.org/articles/config-file#match-pattern-how-you-control-the-event-flow-inside-fluentd)
