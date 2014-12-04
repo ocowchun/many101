@@ -10,3 +10,5 @@ A lightweight JavaScript library for creating particles
 [chroma.js](https://github.com/gka/chroma.js)
 JavaScript library for all kinds of color manipulations
 
+[BackstopJS](https://garris.github.io/BackstopJS/)
+BackstopJS automates CSS regression tesing of your responsive web UI by comparing DOM screenshots at various viewport sizes.
