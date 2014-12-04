@@ -11,7 +11,7 @@ sudo apt-get install monit
 ```
 
 ####啟動網頁介面
-修改`monitrc`加入下列兩行
+修改`/etc/monit/monitrc`加入下列兩行
 
 ```
   set httpd port 3737
@@ -29,6 +29,20 @@ check process nginx with pidfile /var/run/nginx.pid
   stop program = "/etc/init.d/nginx stop"
   if failed host 127.0.0.1 port 80 then restart
   if 15 restarts within 15 cycles then timeout
+```
+
+####追蹤redis
+```
+check process redis-server
+    with pidfile "/var/run/redis.pid"
+    start program = "/etc/init.d/redis-server start"
+    stop program = "/etc/init.d/redis-server stop"
+    if 2 restarts within 3 cycles then timeout
+    if totalmem > 100 Mb then alert
+    if children > 255 for 5 cycles then stop
+    if cpu usage > 95% for 3 cycles then restart
+    if failed host 127.0.0.1 port 6379 then restart
+    if 5 restarts within 5 cycles then timeout
 ```
 
 [Monit。我所使用的系統及服務監控軟體](http://portable.easylife.tw/2407)
