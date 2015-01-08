@@ -13,7 +13,8 @@ kitchen init --driver=kitchen-ec2
 
 
 ###設定參數
-```yml kitchen.yml
+####kitchen.yml
+```yml 
 ---
 driver:
   name: ec2
