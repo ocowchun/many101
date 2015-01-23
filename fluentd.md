@@ -76,7 +76,27 @@ match directive一定要包含match pattern與`type`參數
 
 ##tail log 101
 ###tail Rails log
-add below to `td-agent.conf`
+
+####1. add below to `Gemfile`
+```rb
+gem 'lograge'
+gem "logstash-event"
+```
+
+####2. add below to `config/application.rb`
+```rb
+        config.lograge.enabled = true
+        config.lograge.formatter = Lograge::Formatters::Logstash.new
+```
+
+
+####3. comment `config/environments/production.rb` log_formatter
+
+```rb
+  # config.log_formatter = ::Logger::Formatter.new 
+```
+
+####4. add below to `td-agent.conf`
 ```
 <source>
   type tail
@@ -86,11 +106,6 @@ add below to `td-agent.conf`
 </source>
 ```
 
-comment `config/environments/production.rb` log_formatter
-
-```rb
-  # config.log_formatter = ::Logger::Formatter.new 
-```
 
 ###tail nginx log
 ```
@@ -110,6 +125,13 @@ $ tar zxvf kibana-3.0.0milestone5.tar.gz
 
 ```
 
+###setting elasticsearch
+修改`elasticsearch.yml`,設定`http.cors.enabled`為true
+```yml
+http.cors.enabled: true
+```
+
+####設定nginx連接到kibana的資料夾
 
 ###install  Elasticsearch plugin for td-agent
 
