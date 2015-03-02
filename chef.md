@@ -1,7 +1,7 @@
 #chef 101
 
 ##chef是做什麼用的?
-把安裝package(ex:安裝mysql到ubuntu)這件事情自動化的工具
+把安裝package(i.e. 安裝mysql到ubuntu)這件事情自動化的工具
 
 想想看平常安裝rails production環境的時候，要打一堆`apt-get install`，有了`chef`之後，這些事情可以寫成`cookbooks`，以後就能自動化完成，再也不用跟環境在哪邊過不去囉!!
 
