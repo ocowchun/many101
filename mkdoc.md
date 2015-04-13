@@ -4,7 +4,8 @@
 
 ####[install pip](http://pip.readthedocs.org/en/latest/installing.html#id7)
 ```sh
-$ pip install mkdocs
+$ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+$ sudo python get-pip.py
 ```
 
 ####install mkdocs
