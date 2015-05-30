@@ -128,29 +128,60 @@ gem 'lograge'
 ```
 
 ##integrate fluent with kibana
-###install kibana
-```sh
-$ curl -O https://download.elasticsearch.org/kibana/kibana/kibana-3.0.0milestone5.tar.gz
-$ tar zxvf kibana-3.0.0milestone5.tar.gz
+###1. install kibana
+####1.1 download and extract kibana 
 
+```sh
+$ curl -O http://download.elastic.co/kibana/kibana/kibana-4.1.0-snapshot-linux-x64.tar.gz
+$ tar cvf kibana-4.1.0-snapshot-linux-x64.tar.gz
 ```
 
-###setting elasticsearch
+####1.2 install pm2
+
+```sh
+$ sudo npm install -g pm2
+```
+
+####1.3 edit `config/kibana.yml` in `kibana-4.1.0-snapshot-linux-x64`
+
+```yml
+elasticsearch_url: "http://your-elasticsearch-url:9200"
+```
+
+####1.4 add `kibana-process.json` to kibana folder
+
+```js
+{
+  "script": "./src/bin/kibana.js",
+  "max_memory_restart": "100M",
+  "env": {
+    "NODE_ENV": "production",
+    "CONFIG_PATH": "./config/kibana.yml"
+  }
+}
+```
+
+####1.5 start kibana
+
+```
+$ pm2 start kibana-process.json
+```
+
+
+###2. setting elasticsearch
 修改`elasticsearch.yml`,設定`http.cors.enabled`為true
 ```yml
 http.cors.enabled: true
 ```
 
-####設定nginx連接到kibana的資料夾
-
-###install  Elasticsearch plugin for td-agent
+###3. install  Elasticsearch plugin for td-agent
 
 ```sh
 sudo apt-get install libcurl4-openssl-dev
 sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 ```
 
-###edit`td-agent.conf`,send nginx log to elastic search
+###4. edit`td-agent.conf`,send nginx log to elastic search
 [link](http://docs.fluentd.org/recipe/nginx/elasticsearch)
 ```
 <source>
