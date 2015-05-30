@@ -96,11 +96,21 @@ gem "logstash-event"
   # config.log_formatter = ::Logger::Formatter.new 
 ```
 
-####4. add below to `td-agent.conf`
+####4. add `lograge` to `Gemfile`
+```rb
+gem 'lograge'
+``` 
+
+####5. add this line to `config/environments/production.rb`
+```rb
+    config.lograge.formatter = Lograge::Formatters::Logstash.new
+```
+
+####6. add below to `td-agent.conf`
 ```
 <source>
   type tail
-  path /home/vagrant/apps/deploy411_production/shared/log/production.log
+  path /home/vagrant/apps/your-rails-app/shared/log/production.log
   tag debug.test
   format json
 </source>
