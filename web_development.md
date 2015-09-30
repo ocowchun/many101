@@ -16,6 +16,25 @@
 * 使用Restful的view，至多增加layout, common
 * 建立`doc/schema.md` db有變動時，就把內容寫進去
 
+###協助開發的gem
+
+####pry-rails
+>設定中斷點
+
+[link](https://github.com/rweng/pry-rails)
+[Pry ：新一代 Debug 利器](http://blog.xdite.net/posts/2012/08/13/pry-the-new-debugger)
+
+####better_errors
+>Better Errors replaces the standard Rails error page with a much better and more useful error page. It is also usable outside of Rails in any Rack app as Rack middleware.
+
+[link](https://github.com/charliesome/better_errors)
+
+####quiet_assets
+>Mutes assets pipeline log messages.
+
+[quiet_assets](https://github.com/evrone/quiet_assets)
+
+
 ####rails 4.2以前的版本，使用[foreigner](https://github.com/matthuhiggins/foreigner)建立fk
 格式如下:
 ```rb
