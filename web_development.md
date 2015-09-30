@@ -37,6 +37,9 @@ To resolve, add 2 100×100 png files, save it as apple-touch-icon-precomposed.pn
 ####robots.txt
 要先設定好，哪些網址不要讓機器人看(例如ajax,api)
 
+##發布後
+在部署完成的網站,使用chrome developer console,確認所有靜態資源都有讀取到
+
 ###gem
 * annotate
 * simple_form
