@@ -4,3 +4,6 @@
 ```
 REDIS_URL: redis://xxx.amazonaws.com:6379
 ```
+
+####reference
+https://github.com/mperham/sidekiq/wiki/Using-Redis
