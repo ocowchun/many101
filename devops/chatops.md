@@ -70,8 +70,17 @@ gem "capistrano-resque", "~> 0.2.2", require: false
 `hubot deploy <app>/<branch> in <env> `
 (i.e.部署`hello_world`的`staging`branch到`staging`stage)
 
+##add github ssh key to heaven
+1. add ssh key to github
+2. add below code to `.profile`
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+echo "hello ocowchun"
+```
 
 ##forward-agent設定
+https://developer.github.com/guides/using-ssh-agent-forwarding/#setting-up-ssh-agent-forwarding
 tbd
 
 ##deploy-status
