@@ -215,12 +215,17 @@ $ npm init #如果你的專案根目錄沒有package.json
 $ npm install webpack babel-core babel-plugin-react-transform express react-transform-catch-errors react-transform-hmr webpack-dev-middleware webpack-hot-middleware --save-dev
 ```
 
-###5. 在`config/application.rb`設定 precompile assets
+###5. 在`config/initializers/assets.rb`設定 precompile assets
 ```rb
-Rails.application.config.assets.precompile += %w( bundle/*.js)
+Rails.application.config.assets.precompile += %w( bundle/*.js )
 ```
 
-###6. 在lib資料夾加入 `hmr_proxy.rb`
+###6. 在`Gemfile`加入 `rack-proxy`
+```
+  gem 'rack-proxy'
+```
+
+###7. 在lib資料夾加入 `hmr_proxy.rb`
 ```rb
 require 'rack-proxy'
 class HmrProxy < Rack::Proxy
@@ -244,15 +249,20 @@ class HmrProxy < Rack::Proxy
 
   def rewrite_env(env)
     if env["PATH_INFO"].start_with?('/assets/bundle/')
+      if env["PATH_INFO"].end_with?('.js')&&!env["PATH_INFO"].end_with?('.hot-update.js')
+        path=env["PATH_INFO"].sub('/assets/bundle/','')
+        env["PATH_INFO"]='/assets/bundle/'+path.split('.')[0]+'.js'
+      end
       env["HTTP_HOST"] = "localhost:5000"
     end
     env
   end
 
 end
+
 ```
 
-###7. 在 `config/environments/development.rb` 設定 `HmrProxy`
+###8. 在 `config/environments/development.rb` 設定 `HmrProxy`
 
 ```rb
 require_relative '../../lib/hmr_proxy'
@@ -263,11 +273,11 @@ Rails.application.configure do
 end
 ```
 
-###. 在開發時執行
+###9. 在開發時執行
 ```bash
 $ node devServer
 ```
-
+###範例程式碼
 [hmr-rails-boilerplate](https://github.com/ocowchun/hmr-rails-boilerplate)
 
 
