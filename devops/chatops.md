@@ -73,6 +73,7 @@ gem "capistrano-resque", "~> 0.2.2", require: false
 
 ##forward-agent設定
 tbd
+https://developer.github.com/guides/using-ssh-agent-forwarding/
 
 ##reference
 [heaven-overview](https://github.com/atmos/heaven/blob/master/doc/overview.md)

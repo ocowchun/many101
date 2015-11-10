@@ -1,3 +1,56 @@
+##elastic 類比於RMDB
+Index=>Database
+Type=>Table
+Document=>row
+Field=>column
+
+##建立index
+`$ curl -XPUT http://localhost:9200/index`
+
+##建立Type
+```
+curl -XPOST http://localhost:9200/index/fulltext/_mapping -d'
+{
+    "fulltext": {
+             "_all": {
+            "indexAnalyzer": "ik",
+            "searchAnalyzer": "ik",
+            "term_vector": "no",
+            "store": "false"
+        },
+        "properties": {
+            "content": {
+                "type": "string",
+                "store": "no",
+                "term_vector": "with_positions_offsets",
+                "indexAnalyzer": "ik",
+                "searchAnalyzer": "ik",
+                "include_in_all": "true",
+                "boost": 8
+            }
+        }
+    }
+}'
+```
+
+##search
+###URI Search
+`http://localhost:9200/twitter/tweet/_search?q=user:kimchy`
+
+
+##[檢視目前的index](https://www.elastic.co/guide/en/elasticsearch/reference/current/_create_an_index.html)
+`http://192.168.33.33:9200/_cat/indices?v`
+
+health為yellow表示replica沒有設置好(最常見的情況是你只有設置一個節點，所以沒有備份的節點)
+
+##[Maping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html)
+>設定type的schema
+
+###檢視特定index的mapping
+`http://192.168.33.34:9200/index_name/_mappings/`
+
+[設定mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-mapping.html)
+
 `/_nodes`
 看節點的設置情況
 
