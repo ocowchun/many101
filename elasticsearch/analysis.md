@@ -1,8 +1,9 @@
-#synonym
->處理同義字
+https://www.elastic.co/guide/en/elasticsearch/guide/master/custom-analyzers.html
 
-https://www.elastic.co/guide/en/elasticsearch/reference/2.0/analysis-synonym-tokenfilter.html
+https://www.elastic.co/guide/en/elasticsearch/reference/2.0/indices-update-settings.html#update-settings-analysis
 
+##修改index的設定
+`put your_index/_settings`
 
 ```json
 {
@@ -27,4 +28,3 @@ https://www.elastic.co/guide/en/elasticsearch/reference/2.0/analysis-synonym-tok
     }
 }
 ```
-`synonyms_path` 是`config`的相對路徑，例如`analysis/synonym.txt`會對應到 `$elastic_search_conf_path/analysis/synonym.txt`
