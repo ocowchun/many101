@@ -207,3 +207,54 @@ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 [before-install](http://docs.fluentd.org/articles/before-install)
 [config-file](http://docs.fluentd.org/articles/config-file)
 [match pattern](http://docs.fluentd.org/articles/config-file#match-pattern-how-you-control-the-event-flow-inside-fluentd)
+
+
+###adjust elastic search index
+`put /_template/template_rails_access_1`
+
+```json
+{
+  "template": "logstash-*",
+  "settings": {
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "rails.access": {
+      "properties": {
+        "sudo_bid": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "action": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "method": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "controller": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "browser": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "path": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "os": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "host": {
+          "type": "string",
+          "index": "not_analyzed"
+        }
+      }
+    }
+  }
+}
+```
