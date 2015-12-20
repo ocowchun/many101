@@ -183,5 +183,18 @@ metadata
 http://www.packer.io/	
 客制化自己的image
 
+###LWRP(Lightweight Resources and Providers)
+
+```rb
+windows_package "7-Zip 9.20 (x64 edition)" do
+  source "http://downloads.sourceforge.net/sevenzip/7z920-x64.msi"
+  action :install
+end
+```
+[http://dougireton.com/blog/2012/12/31/creating-an-lwrp/](Creating an LWRP, Part 1: The Resource)
+
+###Cookbook Pattern
+[The Environment Cookbook Pattern](http://blog.vialstudios.com/the-environment-cookbook-pattern/#thewrappercookbook)
+
 ###reference
 [Chef & Immutable Infrasturcture by Richard Lee](https://speakerdeck.com/dlackty/chef-and-immutable-infrasturcture)
