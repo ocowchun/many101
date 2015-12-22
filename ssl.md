@@ -1,6 +1,18 @@
 https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/ssl-server-cert.html
 https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_SettingUpLoadBalancerHTTPS.html
 
+##Create a Server Certificate
+>To create a server certificate using OpenSSL
+
+```bash
+openssl genrsa -out my-private-key.pem 2048
+openssl req -sha256 -new -key my-private-key.pem -out csr.pem
+```
+
+
+
+
+
 ```bash
 openssl   rsa  -in your-private-key-filename  -outform PEM 
 openssl x509 -inform PEM -in your-public-certificate-filename
