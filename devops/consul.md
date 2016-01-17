@@ -31,3 +31,8 @@ $ consul join 172.20.20.11
 
 ###2. get key value use consul cli from node2
 `$ consul watch -type=key -key=web/key1`
+
+##todo
+
+* study [check](https://consul.io/docs/agent/checks.html)
+* study [watch](https://consul.io/docs/agent/watches.html)
