@@ -15,6 +15,7 @@
 1. 設定`config/secrets.yml`
 2. 設定環境變數`GITHUB_TOKEN`
 3. 設定你的Notifier環境變數，如果你是使用Slack就是要設定`SLACK_WEBHOOK_URL`
+4. 如果你的github repo有安裝ci，然後你不想要auto deploy，記得在heavne的webhook disable `status` event
 
 ###capistrano
 把要部署的rails project裡會用到的cap gem全部加到`heaven`的`Gemfile`
@@ -55,7 +56,7 @@ gem "capistrano-resque", "~> 0.2.2", require: false
 }
 ```
 
-###常用hubot指令
+###常用hubot-deploy指令
 
 ###see what environments you can deploy app
 `hubot where can I deploy <app>`
