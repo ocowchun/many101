@@ -195,6 +195,7 @@ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 <match **>
   type elasticsearch
   logstash_format true
+  logstash_dateformat %Y.%m. # defaults to "%Y.%m.%d"
   host <hostname> #(optional; default="localhost")
   port <port> #(optional; default=9200)
   index_name <index name> #(optional; default=fluentd)
@@ -207,7 +208,7 @@ sudo /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 [before-install](http://docs.fluentd.org/articles/before-install)
 [config-file](http://docs.fluentd.org/articles/config-file)
 [match pattern](http://docs.fluentd.org/articles/config-file#match-pattern-how-you-control-the-event-flow-inside-fluentd)
-
+[fluent-plugin-elasticsearch](https://github.com/uken/fluent-plugin-elasticsearch)
 
 ###adjust elastic search index
 `put /_template/template_rails_access_1`

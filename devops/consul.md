@@ -31,3 +31,13 @@ $ consul join 172.20.20.11
 
 ###2. get key value use consul cli from node2
 `$ consul watch -type=key -key=web/key1`
+
+
+##[consul-template](https://github.com/hashicorp/consul-template)
+使用`consul-template`來動態調整config
+
+```
+{{range ls "service/rails_app_name/env"}}
+{{.Key}}: {{.Value}}
+{{end}}
+```

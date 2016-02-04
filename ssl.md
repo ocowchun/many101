@@ -37,3 +37,13 @@ openssl req -sha256 -new -key my-private-key-file.pem -out csr.pem
 
 {MD5}.yourdomain.com
 CName {SHA1}.comodoca.com
+
+
+##make ssl grade to A
+https://www.linode.com/docs/security/security-patches/disabling-sslv3-for-poodle
+
+https://certsimple.com/blog/are-ev-ssl-certificates-worth-it
+
+https://weakdh.org/
+
+https://weakdh.org/sysadmin.html
