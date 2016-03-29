@@ -37,3 +37,7 @@ elasticsearch_url: "http://your-elasticsearch-url:9200"
 ```
 $ pm2 start kibana-process.json
 ```
+
+
+##search
+https://www.elastic.co/guide/en/beats/packetbeat/current/_kibana_queries_and_filters.html
