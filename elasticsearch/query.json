@@ -1,0 +1,60 @@
+// basic query
+{
+  "query": {
+    "bool": {
+      "should": [{
+        "match": {
+          "title": "Search"
+        }
+      }]
+
+    }
+  }
+}
+
+// score query without functions
+{
+  "query": {
+    "function_score": {
+      "functions": [],
+      "query": {
+        "bool": {
+          "should": [{
+            "match": {
+              "content": "javascript"
+            }
+          }]
+
+        }
+      },
+      "score_mode": "multiply"
+    }
+  }
+}
+
+// score query
+{
+  "query": {
+    "function_score": {
+      "functions": [{
+        "field_value_factor": {
+          "field": "id",
+          "factor": 1.2,
+          "modifier": "sqrt",
+          "missing": 1
+        }
+      }],
+      "query": {
+        "bool": {
+          "should": [{
+            "match": {
+              "content": "javascript"
+            }
+          }]
+
+        }
+      },
+      "score_mode": "multiply"
+    }
+  }
+}
