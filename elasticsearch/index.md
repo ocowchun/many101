@@ -39,3 +39,24 @@ https://github.com/garbin/elasticsearch-reindex
 
 ###取得目前的文件數
 `$curl http://localhost:9200/your_index/_stats/docs?pretty`
+
+
+##update index
+https://www.elastic.co/guide/en/elasticsearch/reference/2.0/indices-update-settings.html
+
+```
+curl -XPOST 'localhost:9200/myindex/_close'
+
+curl -XPUT 'localhost:9200/myindex/_settings' -d '{
+  "analysis" : {
+    "analyzer":{
+      "content":{
+        "type":"custom",
+        "tokenizer":"whitespace"
+      }
+    }
+  }
+}'
+
+curl -XPOST 'localhost:9200/myindex/_open'
+```

@@ -19,3 +19,9 @@ resource是一種資源(i.e. ec2,elastic-ip...etc)
 [basic aws two-tier](https://github.com/hashicorp/terraform/tree/master/examples/aws-two-tier)
 
 ##要使用chef的話 要先開一台chef server QQ
+
+
+##terraform taint
+https://www.terraform.io/docs/commands/taint.html
+清除某個resource在tf.state的state
+當你不小心不是透過terraform刪除了某個資源，導致state沒有辦法對應的時候 可以用這樣的方式來處理state
