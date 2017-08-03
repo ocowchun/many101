@@ -35,3 +35,10 @@ $ go install github.com/your-github-name/hello
 $ $GOPATH/bin/hello
 hello, world
 ```
+## name
+講解 golnag 的命名慣例
+i.e. public function 的第一個字元要大寫
+使用 MixedCaps 而不使用 underscore (i.e. MyReader)
+
+
+https://golang.org/doc/effective_go.html#names
