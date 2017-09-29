@@ -19,7 +19,7 @@ func a() {
 
 This function prints "3210":
 
-```
+```go
 func b() {
     for i := 0; i < 4; i++ {
         defer fmt.Print(i)
@@ -31,7 +31,7 @@ func b() {
 
 In this example, a deferred function increments the return value i after the surrounding function returns. Thus, this function returns 2:
 
-```
+```go
 func c() (i int) {
     defer func() { i++ }()
     return 1
